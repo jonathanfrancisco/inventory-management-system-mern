@@ -1,0 +1,26 @@
+{
+  "name": "inventory-management-system-mern",
+  "version": "1.0.0",
+  "description": "Generic Inventory Management System using MERN STACK (MySQL, Express.js, React, Node.js) I made a similar one before but using PHP and it is server rendered. This time I'll make use of MERN stack and it'll be client-side rendered.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanfrancisco/inventory-management-system-mern.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanfrancisco/inventory-management-system-mern/issues"
+  },
+  "homepage": "https://github.com/jonathanfrancisco/inventory-management-system-mern#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "knex": "^0.16.3",
+    "mysql2": "^1.6.4"
+  }
+}
