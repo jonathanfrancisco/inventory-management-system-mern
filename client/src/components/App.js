@@ -3,15 +3,15 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { Layout} from 'antd';
 import LinkNav from './hoc/LinkNav';
 import {ProtectedRoute} from './hoc/ProtectedRoute';
+import Products from '../pages/Products';
+import Categories from '../pages/Categories';
+import Brands from '../pages/Brands';
 import 'antd/dist/antd.css';
 
 const { Header, Content } = Layout;
 
 
 
-const BrandPage = () => {
-   return <h1>Hello World </h1>;
-};
 
 class App extends React.Component {
 
@@ -27,9 +27,9 @@ class App extends React.Component {
                      <Content style={{ padding: '30px' }}>
                         <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                            <Switch>
-                              <ProtectedRoute exact path="/products" render={BrandPage}/>
-                              <ProtectedRoute exact path="/categories" render={BrandPage}/>
-                              <ProtectedRoute exact path="/brands" component={BrandPage}/>
+                              <ProtectedRoute exact path="/products" component={Products}/>
+                              <ProtectedRoute exact path="/categories" component={Categories}/>
+                              <ProtectedRoute exact path="/brands" component={Brands}/>
                            </Switch>
                         </div>
                      </Content>
