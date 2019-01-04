@@ -19,7 +19,7 @@ class App extends React.Component {
       return (
          <div className="App">
                <Router>
-                  <Layout className="layout">
+                  <Layout className="layout" style={{minHeight: '100vh'}}>
                      <Header>
                         <div className="logo" />        
                         <LinkNav />      
