@@ -16,7 +16,7 @@ const { Header, Content } = Layout;
 class App extends React.Component {
 
    state = {
-      authenticated: true
+      authenticated: false
    };
 
    render() {
@@ -27,8 +27,10 @@ class App extends React.Component {
 
                      {!this.state.authenticated? (
                         <React.Fragment>
-                           <Route path="/" render={() => <h1>Login Form</h1>} />
-                           <Route path="/gago" render={() => <h2>Lah parang gago</h2>} />
+                           <Switch>
+                              <Route exact path={["/","/login"]} render={() => <h1>Login Form</h1>} />
+                              <Route render={() => <h3>Error 404. URL not found.</h3>}/>
+                           </Switch>
                         </React.Fragment>
                           
                      ) : (<Layout className="layout" style={{minHeight: '100vh'}}>
@@ -43,6 +45,7 @@ class App extends React.Component {
                                     <ProtectedRoute auth={this.state.authenticated} path="/products" component={Products}/>
                                     <ProtectedRoute auth={this.state.authenticated} path="/categories" component={Categories}/>
                                     <ProtectedRoute auth={this.state.authenticated} path="/brands" component={Brands}/>
+                                    <Route render={() => <h3>Error 404. URL not found.</h3>}/>
                                  </Switch>
                               </div>
                            </Content>
