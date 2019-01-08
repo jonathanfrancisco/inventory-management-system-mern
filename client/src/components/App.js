@@ -39,10 +39,10 @@ class App extends React.Component {
                            <Content style={{ padding: '30px' }}>
                               <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                                  <Switch>
+                                    <Route exact path="/" render={() => <Redirect to="/products"/>}/>
                                     <ProtectedRoute auth={this.state.authenticated} path="/products" component={Products}/>
                                     <ProtectedRoute auth={this.state.authenticated} path="/categories" component={Categories}/>
                                     <ProtectedRoute auth={this.state.authenticated} path="/brands" component={Brands}/>
-                                    <Redirect exact to="/products"/>
                                  </Switch>
                               </div>
                            </Content>
