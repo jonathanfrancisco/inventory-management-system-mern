@@ -6,6 +6,7 @@ import {ProtectedRoute} from './hoc/ProtectedRoute';
 import Products from '../components/pages/Products';
 import Categories from '../components/pages/Categories';
 import Brands from '../components/pages/Brands';
+import Login from '../components/pages/Login';
 import 'antd/dist/antd.css';
 
 const { Header, Content } = Layout;
@@ -28,7 +29,7 @@ class App extends React.Component {
                      {!this.state.authenticated? (
                         <React.Fragment>
                            <Switch>
-                              <Route exact path={["/","/login"]} render={() => <h3>Login Form</h3>} />
+                              <Route exact path={["/","/login"]} component={Login} />
                               <Route render={() => <h3>Error 404. URL not found.</h3>}/>
                            </Switch>
                         </React.Fragment>
@@ -42,9 +43,9 @@ class App extends React.Component {
                               <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                                  <Switch>
                                     <Route exact path="/" render={() => <Redirect to="/products"/>}/>
-                                    <ProtectedRoute auth={this.state.authenticated} path="/products" component={Products}/>
-                                    <ProtectedRoute auth={this.state.authenticated} path="/categories" component={Categories}/>
-                                    <ProtectedRoute auth={this.state.authenticated} path="/brands" component={Brands}/>
+                                    <ProtectedRoute exact auth={this.state.authenticated} path="/products" component={Products}/>
+                                    <ProtectedRoute exact auth={this.state.authenticated} path="/categories" component={Categories}/>
+                                    <ProtectedRoute exact auth={this.state.authenticated} path="/brands" component={Brands}/>
                                     <Route render={() => <h3>Error 404. URL not found.</h3>}/>
                                  </Switch>
                               </div>
