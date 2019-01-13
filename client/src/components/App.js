@@ -3,9 +3,9 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import { Layout} from 'antd';
 import LinkNav from './hoc/LinkNav';
 import {ProtectedRoute} from './hoc/ProtectedRoute';
-import Products from '../pages/Products';
-import Categories from '../pages/Categories';
-import Brands from '../pages/Brands';
+import Products from '../components/pages/Products';
+import Categories from '../components/pages/Categories';
+import Brands from '../components/pages/Brands';
 import 'antd/dist/antd.css';
 
 const { Header, Content } = Layout;
@@ -28,7 +28,7 @@ class App extends React.Component {
                      {!this.state.authenticated? (
                         <React.Fragment>
                            <Switch>
-                              <Route exact path={["/","/login"]} render={() => <h1>Login Form</h1>} />
+                              <Route exact path={["/","/login"]} render={() => <h3>Login Form</h3>} />
                               <Route render={() => <h3>Error 404. URL not found.</h3>}/>
                            </Switch>
                         </React.Fragment>
