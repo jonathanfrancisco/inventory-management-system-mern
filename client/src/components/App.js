@@ -17,7 +17,7 @@ const { Header, Content } = Layout;
 class App extends React.Component {
 
    state = {
-      authenticated: false
+      authenticated: true
    };
 
    render() {
@@ -43,6 +43,7 @@ class App extends React.Component {
                               <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                                  <Switch>
                                     <Route exact path="/" render={() => <Redirect to="/products"/>}/>
+                                    <Route exact path="/login" render={() => <Redirect to="/"/>} />
                                     <ProtectedRoute exact auth={this.state.authenticated} path="/products" component={Products}/>
                                     <ProtectedRoute exact auth={this.state.authenticated} path="/categories" component={Categories}/>
                                     <ProtectedRoute exact auth={this.state.authenticated} path="/brands" component={Brands}/>
