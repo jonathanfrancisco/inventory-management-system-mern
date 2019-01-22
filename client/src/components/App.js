@@ -17,8 +17,12 @@ const { Header, Content } = Layout;
 class App extends React.Component {
 
    state = {
-      authenticated: true
+      authenticated: false
    };
+
+   handleLoginSubmit = (values) => {
+      return false;
+   }
 
    render() {
       return (
@@ -29,7 +33,7 @@ class App extends React.Component {
                      {!this.state.authenticated? (
                         <React.Fragment>
                            <Switch>
-                              <Route exact path={["/","/login"]} component={Login} />
+                              <Route exact path={["/","/login"]} render={(routeProps) => <Login {...routeProps} handleSubmit={this.handleLoginSubmit}/>} />
                               <Route render={() => <h3>Error 404. URL not found.</h3>}/>
                            </Switch>
                         </React.Fragment>

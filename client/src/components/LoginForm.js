@@ -9,7 +9,17 @@ class NormalLoginForm extends React.Component {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
          if (!err) {
-            this.props.onSubmit(values);
+            const valid = this.props.onSubmit(values);
+            if(!valid) {
+               this.props.form.setFields({
+                  userName: {
+                     errors: [new Error('Incorrect username!')]
+                  },
+                  password: {
+                     errors: [new Error('Incorrect password')]
+                  }
+               });
+            }
          }
       });
    }
@@ -18,7 +28,7 @@ class NormalLoginForm extends React.Component {
       const { getFieldDecorator } = this.props.form;
       return (
          <Form onSubmit={this.handleSubmit} className="login-form">
-            <Form.Item>
+            <Form.Item message={"hello?"}>
                {getFieldDecorator('userName', {
                   rules: [{ required: true, message: 'Please input your username!' }],
                })(
@@ -42,5 +52,5 @@ class NormalLoginForm extends React.Component {
    }
 }
 
-export default Form.create({ name: 'normal_login' })(NormalLoginForm);
+export default Form.create()(NormalLoginForm);
 
