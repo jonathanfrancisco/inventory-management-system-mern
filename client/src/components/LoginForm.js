@@ -43,8 +43,8 @@ class NormalLoginForm extends React.Component {
                )}
             </Form.Item>
             <Form.Item>
-               <Button block type="primary" htmlType="submit" className="login-form-button">
-                  Log in
+               <Button icon="user" block type="primary" htmlType="submit" className="login-form-button">
+                  Login
                </Button>
             </Form.Item>
          </Form>

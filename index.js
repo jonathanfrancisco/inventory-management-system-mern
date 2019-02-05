@@ -9,7 +9,6 @@ const app = express();
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
-
 app.use('/api/', routes);
 
 app.listen(process.env.PORT, () => {

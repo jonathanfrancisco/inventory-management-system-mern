@@ -21,6 +21,7 @@ class App extends React.Component {
    };
 
    handleLoginSubmit = (values) => {
+      console.log(values);
       return false;
    }
 
